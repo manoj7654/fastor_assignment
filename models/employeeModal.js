@@ -1,6 +1,6 @@
 const mongoose=require("mongoose")
 
-const userShcema=mongoose.Schema({
+const empployeeSchema=mongoose.Schema({
     name:{type:String, require:true},
     mobile:{type:Number,require:true},
     email:{type:String,require:true},
@@ -11,6 +11,6 @@ const userShcema=mongoose.Schema({
 })
 
 
-const Usermodel=mongoose.model("users",userShcema)
+const Employeemodel=mongoose.model("users",empployeeSchema)
 
-module.exports={Usermodel}
+module.exports={Employeemodel}

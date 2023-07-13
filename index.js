@@ -3,7 +3,7 @@ const app=express()
 require("dotenv").config()
 const {connection}=require("./config/db")
 
-const {userRouter}=require("./routes/userRoutes")
+const {employeeRouter}=require("./routes/employeeRouter")
 
 
 // const { authenticate } = require("./middleware/authentication")
@@ -14,7 +14,7 @@ app.get("/",(req,res)=>{
     res.send("WELCOME TO THE HOME PAGE OF THIS API")
 })
 
-app.use("/user",userRouter)
+app.use("/user",employeeRouter)
 
 app.listen(process.env.port,async()=>{
     try {

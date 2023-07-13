@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const {Usermodel}=require("../models/userModal")
+const {Employeemodel}=require("../models/employeeModal")
 require("dotenv").config();
 
 const register = async (req, res) => {
@@ -13,7 +13,7 @@ const {name,mobile,email,password}=req.body
         message: "Name, mobile,email and password are required.",
       });
     }
-        const check=await Usermodel.find({email})
+        const check=await Employeemodel.find({email})
         
         if(check.length>0){
             return res.status(400).json({"message":"User already exist"})
@@ -22,7 +22,7 @@ const {name,mobile,email,password}=req.body
            if(err){
             console.log(err)
            }else{
-            const user=new Usermodel({name,mobile,email,password:secure_password});
+            const user=new Employeemodel({name,mobile,email,password:secure_password});
             await user.save();
             res.status(201).json({"message":"Account Created successfully"})
            }
@@ -44,7 +44,7 @@ const {email,password}=req.body;
     if (!email || !password) {
       return res.status(400).json({ msg: "Email and password are required." });
     }
-        const user=await Usermodel.find({email})
+        const user=await Employeemodel.find({email})
         if(user.length>0){
             bcrypt.compare(password, user[0].password, (err, result)=> {
                 if(result){
