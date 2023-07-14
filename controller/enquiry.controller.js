@@ -38,8 +38,19 @@ const claimEnquiry=async(req,res)=>{
         }
 }
 
+const getClaimEnquiry=async(req,res)=>{
+    try {
+        const employeeId=req.body.employeeId
+        const enquiry=await EnquiryModel.find({claimedBy:employeeId})
+        res.status(200).json(enquiry)
+    } catch (error) {
+        res.status(500).json({ message: 'Error in getting claim enquiry', error });
+    }
+}
+
 module.exports={
     addEnquiry,
     getAllEnquiry,
-    claimEnquiry
+    claimEnquiry,
+    getClaimEnquiry
 }
