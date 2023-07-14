@@ -142,18 +142,19 @@ The server will start running at the specified port.
         500 Internal Server Error: Error while creating the enquiry.
 
 2. Get all unclaimed enquiries.
-* method : GET 
+* method : GET
 *Endpoint : /enquiry/getAllEnquiry: 
-
+* Authorization : token
 * Response:
         200 OK: List of unclaimed enquiries.
         500 Internal Server Error: Error while getting the enquiries.
 
 3. Claim an enquiry by an employee.
 
-* method : PATCH 
-* Endpoint : /enquiry/:id/claim
+* method : PATCH
 
+* Endpoint : /enquiry/:id/claim
+* Authorization : token
 * Request Parameters:
 
   id: ID of the enquiry to be claimed.
@@ -169,9 +170,9 @@ The server will start running at the specified port.
 
 4. Get All Enquiry claimed by an employee
 
-* method : GET 
+* method : GET
 * Endpoint : /enquiry/claimEnquiry
-
+ * Authorization : token
 * Response:
 
         200 OK: List of enquiries claimed by the employee.
