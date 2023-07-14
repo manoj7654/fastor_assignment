@@ -1,5 +1,5 @@
 # fastor_assignment
-This is the documentation for a Node.js API project that includes user and enquiry management functionalities. The API provides endpoints for user registration and login, as well as creating, retrieving, and claiming enquiries.
+This is  for a Node.js API project that includes user and enquiry management functionalities. The API provides endpoints for user registration and login, as well as creating, retrieving, and claiming enquiries.
 
 # Table of Contents
  * [Project Overview](#project-overview) 
