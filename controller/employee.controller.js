@@ -5,10 +5,10 @@ require("dotenv").config();
 
 const register = async (req, res) => {
 
-const {name,mobile,email,password}=req.body
+const {email,password}=req.body
     try {
          // Input validation - check that name, email, and password are present in the request body
-    if (!name || !mobile || !email  || !password) {
+    if (!email  || !password) {
       return res.status(400).json({
         message: "Name, mobile,email and password are required.",
       });
@@ -22,7 +22,7 @@ const {name,mobile,email,password}=req.body
            if(err){
             console.log(err)
            }else{
-            const user=new Employeemodel({name,mobile,email,password:secure_password});
+            const user=new Employeemodel({email,password:secure_password});
             await user.save();
             res.status(201).json({"message":"Account Created successfully"})
            }
@@ -48,8 +48,8 @@ const {email,password}=req.body;
         if(user.length>0){
             bcrypt.compare(password, user[0].password, (err, result)=> {
                 if(result){
-                    const token=jwt.sign({userId:user[0]._id},process.env.key );
-                    res.status(201).json({"token":token,"name":user[0].name,"message":"Login Successfuly"})
+                    const token=jwt.sign({employeeId:user[0]._id},process.env.key );
+                    res.status(201).json({"token":token,"message":"Login Successfuly"})
                 }else{
                     res.status(401).json({"message":"Either email or password mistmatch"})
                 }

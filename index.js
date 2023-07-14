@@ -4,6 +4,7 @@ require("dotenv").config()
 const {connection}=require("./config/db")
 
 const {employeeRouter}=require("./routes/employeeRouter")
+const { enquiryRouter } = require("./routes/enquireyRouter")
 
 
 // const { authenticate } = require("./middleware/authentication")
@@ -15,6 +16,8 @@ app.get("/",(req,res)=>{
 })
 
 app.use("/user",employeeRouter)
+
+app.use("/enquiry",enquiryRouter)
 
 app.listen(process.env.port,async()=>{
     try {
