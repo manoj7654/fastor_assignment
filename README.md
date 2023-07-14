@@ -149,7 +149,7 @@ The server will start running at the specified port.
    
 * method : GET
   
-*Endpoint : /enquiry/getAllEnquiry:
+* Endpoint : /enquiry/getAllEnquiry:
 
 * Authorization : token
   
