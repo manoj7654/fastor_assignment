@@ -1,5 +1,5 @@
 # fastor_assignment
-This is  for a Node.js API project that includes user and enquiry management functionalities. The API provides endpoints for user registration and login, as well as creating, retrieving, and claiming enquiries.
+This API manages employees and enquiries, with public and private functionality. Users register and login as employees, accessing public enquiries submitted by customers. Employees can claim and handle assigned enquiries privately. Effective communication, streamlined enquiry management, and privacy are ensured.
 
 # Table of Contents
  * [Project Overview](#project-overview) 
