@@ -14,13 +14,13 @@ const { authenticate } = require("../middleware/authenticate")
 //<--------------------post enquiry-------------->
 enquiryRouter.post("/addEnquiry",addEnquiry)
 
-// <---------------------get all enquiry---------------->
+// <---------------------get all unclcaimed enquiry---------------->
 enquiryRouter.get("/getAllEnquiry",authenticate,getAllEnquiry)
 
-// <-------------------for claiming enquiry
+// <-------------------for making claimed enquiry--------------->
 enquiryRouter.patch("/:id/claim",authenticate,claimEnquiry)
 
-// <--------------------for getting all claiming enquiry
+// <--------------------for getting all claimed  enquiry ------------>
 enquiryRouter.get("/claimEnquiry",authenticate,getClaimEnquiry)
 
 

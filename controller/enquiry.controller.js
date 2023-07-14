@@ -1,6 +1,8 @@
 
 const {EnquiryModel}=require("../models/enquiryModal")
 
+
+// <--------------------Creating enquiry publicly ----------------------->
 const addEnquiry=async(req,res)=>{
     try {
         const { name, email, courseInterest } = req.body;
@@ -12,7 +14,7 @@ const addEnquiry=async(req,res)=>{
         }
 }
 
-
+// <---------------------------getting all unclaimed enquiry by logged in employee------------>
 const getAllEnquiry=async(req,res)=>{
     try {
         const enquiries = await EnquiryModel.find({ claimedBy: null });
@@ -23,7 +25,7 @@ const getAllEnquiry=async(req,res)=>{
         
 }
 
-
+// <----------------------claiming enquiry by logged in employee---------------------->
 const claimEnquiry=async(req,res)=>{
     try {
         const { id } = req.params;
@@ -38,6 +40,7 @@ const claimEnquiry=async(req,res)=>{
         }
 }
 
+// <------------------getting all claimed enquiry by loggedin employee---------->
 const getClaimEnquiry=async(req,res)=>{
     try {
         const employeeId=req.body.employeeId
