@@ -15,7 +15,7 @@ const { authenticate } = require("../middleware/authenticate")
 enquiryRouter.post("/addEnquiry",addEnquiry)
 
 // <---------------------get all enquiry---------------->
-enquiryRouter.get("/getAllEnquiry",getAllEnquiry)
+enquiryRouter.get("/getAllEnquiry",authenticate,getAllEnquiry)
 
 // <-------------------for claiming enquiry
 enquiryRouter.patch("/:id/claim",authenticate,claimEnquiry)
