@@ -18,7 +18,8 @@ This is the documentation for a Node.js API project that includes user and enqui
 The project consists of several files and directories organized as follows:
 
    `config/: `
-Contains the configuration files for the database 
+
+ * Contains the configuration files for the database 
 connection.
 
  * db.js: Configuration file for connecting to the MongoDB database using Mongoose.
@@ -30,12 +31,14 @@ connection.
  * enquiry.controller.js: Controller functions for creating, retrieving, and claiming enquiries.
 
   `middleware/:`
-  Contains the middleware functions used in the API.
+
+   * Contains the middleware functions used in the API.
 
  * authenticate.js: Middleware function for authenticating user requests using JSON Web Tokens (JWT).
 
   `models/:`
-  Contains the Mongoose models for database schema definitions.
+
+  * Contains the Mongoose models for database schema definitions.
 
  * employeeModal.js: Mongoose model for the user (employee) 
  schema.
@@ -43,7 +46,8 @@ connection.
  * enquiryModal.js: Mongoose model for the enquiry schema.
 
   `routes/:`
-   Contains the route files for defining API endpoints.
+
+   * Contains the route files for defining API endpoints.
 
  * employeeRouter.js: Router for user-related endpoints.
 
@@ -139,7 +143,7 @@ The server will start running at the specified port.
 * method : GET 
 *Endpoint : /enquiry/getAllEnquiry: 
 
-Response:
+* Response:
         200 OK: List of unclaimed enquiries.
         500 Internal Server Error: Error while getting the enquiries.
 

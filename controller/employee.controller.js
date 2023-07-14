@@ -1,8 +1,17 @@
+// <-----------------importing bcrypt for hashing password--------------------->
 const bcrypt = require("bcrypt");
+
+// <----------------importing jwt for generating token ------------------------->
 const jwt = require("jsonwebtoken");
+
+// <-----------------importing model for performing operation -------------------->
 const {Employeemodel}=require("../models/employeeModal")
+
+// <--------------dotenv for accessing port no from env file--------------->
 require("dotenv").config();
 
+
+// <-------------------register for employee------------------>
 const register = async (req, res) => {
 
 const {email,password}=req.body
@@ -14,10 +23,11 @@ const {email,password}=req.body
       });
     }
         const check=await Employeemodel.find({email})
-        
+        // <----------here checking if employee is already register or not ----------------->
         if(check.length>0){
             return res.status(400).json({"message":"User already exist"})
         }
+        // <------------hashing password------------------>
         bcrypt.hash(password, 5, async(err, secure_password)=> {
            if(err){
             console.log(err)
@@ -35,7 +45,7 @@ const {email,password}=req.body
 
 
 
-
+// <---------------login for employee----------------------->
 const login = async (req, res) => {
 
 const {email,password}=req.body;
@@ -44,10 +54,15 @@ const {email,password}=req.body;
     if (!email || !password) {
       return res.status(400).json({ msg: "Email and password are required." });
     }
+    // <--------------checking here user length not equal to 0 ------------------->
         const user=await Employeemodel.find({email})
         if(user.length>0){
+
+            // <--------------------here comparing password for loging-------------------->
             bcrypt.compare(password, user[0].password, (err, result)=> {
                 if(result){
+
+                    // <-------------generating token ------------------------>
                     const token=jwt.sign({employeeId:user[0]._id},process.env.key );
                     res.status(201).json({"token":token,"message":"Login Successfuly"})
                 }else{
@@ -63,6 +78,7 @@ const {email,password}=req.body;
     }
 };
 
+// <-------------exporting login,register--------------------------->
 module.exports = {
   login,
   register,
