@@ -95,6 +95,7 @@ The server will start running at the specified port.
   1. Register
 
  * mehtod: POST
+ * 
  * Endpoint : /user/register: Register a new user (employee).
 
  * Request Body:
@@ -110,7 +111,9 @@ The server will start running at the specified port.
 
     
   2. Login
-  * method : POST 
+
+  * method : POST
+  * 
   * Endpoint : /user/login: Authenticate user credentials and generate a JWT token.
 
  * Request Body:
@@ -129,7 +132,8 @@ The server will start running at the specified port.
 
 1. Create a new enquiry.
 
-* method : POST 
+* method : POST
+  
 * Endpoint : /enquiry/addEnquiry
 
  * Request Body:
@@ -142,9 +146,13 @@ The server will start running at the specified port.
         500 Internal Server Error: Error while creating the enquiry.
 
 2. Get all unclaimed enquiries.
+   
 * method : GET
-*Endpoint : /enquiry/getAllEnquiry: 
+  
+*Endpoint : /enquiry/getAllEnquiry:
+
 * Authorization : token
+  
 * Response:
         200 OK: List of unclaimed enquiries.
         500 Internal Server Error: Error while getting the enquiries.
@@ -154,7 +162,9 @@ The server will start running at the specified port.
 * method : PATCH
 
 * Endpoint : /enquiry/:id/claim
+  
 * Authorization : token
+  
 * Request Parameters:
 
   id: ID of the enquiry to be claimed.
@@ -171,8 +181,11 @@ The server will start running at the specified port.
 4. Get All Enquiry claimed by an employee
 
 * method : GET
+  
 * Endpoint : /enquiry/claimEnquiry
- * Authorization : token
+  
+* Authorization : token
+   
 * Response:
 
         200 OK: List of enquiries claimed by the employee.
